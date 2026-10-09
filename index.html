@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Waterfall Restaurant Indore | In-Pool & Cascade Dining Experience</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        skyLight: '#E0F2FE',
+                        skyPrimary: '#38BDF8',
+                        skyDeep: '#0284C7',
+                        oceanDark: '#0C4A6E',
+                        oceanNight: '#072AC8',
+                        waterCyan: '#06B6D4',
+                        goldAccent: '#F59E0B',
+                        goldHover: '#D97706',
+                        cloudWhite: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F0F9FF;
+            color: #0F172A;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-serif-heading {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Sky Blue Glassmorphism */
+        .glass-nav {
+            background: rgba(12, 74, 110, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .sky-gradient-bg {
+            background: linear-gradient(135deg, #0C4A6E 0%, #0284C7 50%, #38BDF8 100%);
+        }
+
+        .sky-gradient-text {
+            background: linear-gradient(135deg, #38BDF8 0%, #0284C7 50%, #0077B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sky-gradient-heading {
+            background: linear-gradient(135deg, #BAE6FD 0%, #38BDF8 50%, #7DD3FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Water Ripple & Waves Effects */
+        @keyframes waterRipple {
+            0% { transform: scale(0.96); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 0.35; }
+            100% { transform: scale(0.96); opacity: 0.8; }
+        }
+
+        .water-ripple {
+            animation: waterRipple 5s infinite ease-in-out;
+        }
+
+        /* Modal active transitions */
+        .modal-active {
+            display: flex !important;
+            animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800 bg-sky-50/60">
+
+    <!-- Navigation Bar -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="glass-nav border-b border-skyPrimary/30 px-4 lg:px-8 py-3">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                
+                <!-- Brand Logo & Name -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-full border-2 border-skyPrimary flex items-center justify-center bg-skyDeep text-skyLight shadow-lg shadow-skyPrimary/20 group-hover:rotate-12 transition-transform duration-300">
+                        <i class="fa-solid fa-water text-xl text-skyLight"></i>
+                    </div>
+                    <div>
+                        <span class="block font-playfair font-bold text-xl lg:text-2xl text-white tracking-wide leading-none">THE WATERFALL</span>
+                        <span class="text-[10px] sm:text-xs text-skyPrimary font-medium tracking-widest uppercase">Restaurant • Indore</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center gap-7 text-sm font-medium text-sky-100">
+                    <a href="#home" class="hover:text-skyPrimary transition-colors py-1 border-b-2 border-transparent hover:border-skyPrimary">Home</a>
+                    <a href="#experience" class="hover:text-skyPrimary transition-colors py-1 border-b-2 border-transparent hover:border-skyPrimary">Experience</a>
+                    <a href="#gallery" class="hover:text-skyPrimary transition-colors py-1 border-b-2 border-transparent hover:border-skyPrimary">Photos</a>
+                    <a href="#menu" class="hover:text-skyPrimary transition-colors py-1 border-b-2 border-transparent hover:border-skyPrimary">Our Menu</a>
+                    <a href="#reviews" class="hover:text-skyPrimary transition-colors py-1 border-b-2 border-transparent hover:border-skyPrimary">Reviews</a>
+                    <a href="#contact" class="hover:text-skyPrimary transition-colors py-1 border-b-2 border-transparent hover:border-skyPrimary">Location</a>
+                </div>
+
+                <!-- CTA Actions -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="tel:+917000359623" class="text-white hover:text-skyPrimary flex items-center gap-2 text-sm font-semibold transition-colors">
+                        <i class="fa-solid fa-phone text-skyPrimary"></i> +91 70003 59623
+                    </a>
+                    <button onclick="openBookingModal()" class="bg-gradient-to-r from-skyPrimary via-skyDeep to-oceanDark hover:from-skyDeep hover:to-oceanDark text-white font-bold px-5 py-2.5 rounded-full text-sm shadow-md hover:shadow-skyPrimary/40 border border-skyPrimary/40 transition-all duration-300 transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-utensils mr-2 text-skyLight"></i>Reserve Table
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white text-2xl focus:outline-none p-2" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars-staggered text-skyPrimary"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobileMenu" class="hidden md:hidden bg-oceanDark/95 border-t border-skyPrimary/30 mt-3 pt-4 pb-6 px-4 rounded-b-2xl shadow-xl">
+                <div class="flex flex-col space-y-3.5 text-center font-medium text-sky-100">
+                    <a href="#home" class="mobile-link py-1.5 hover:text-skyPrimary">Home</a>
+                    <a href="#experience" class="mobile-link py-1.5 hover:text-skyPrimary">Experience</a>
+                    <a href="#gallery" class="mobile-link py-1.5 hover:text-skyPrimary">Photos & Atmosphere</a>
+                    <a href="#menu" class="mobile-link py-1.5 hover:text-skyPrimary">Our Menu</a>
+                    <a href="#reviews" class="mobile-link py-1.5 hover:text-skyPrimary">Guest Reviews</a>
+                    <a href="#contact" class="mobile-link py-1.5 hover:text-skyPrimary">Location & Hours</a>
+                    <div class="pt-2 flex flex-col gap-3">
+                        <a href="tel:+917000359623" class="bg-oceanNight/60 text-white py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold border border-skyPrimary/40">
+                            <i class="fa-solid fa-phone text-skyPrimary"></i> Call +91 70003 59623
+                        </a>
+                        <button onclick="openBookingModal()" class="bg-skyPrimary hover:bg-skyDeep text-oceanDark font-bold py-3 rounded-xl shadow-lg">
+                            <i class="fa-solid fa-utensils mr-2"></i>Book Table Online
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-oceanDark">
+        <!-- Hero Background Image (Poolside Outdoor Visual) -->
+        <div class="absolute inset-0 z-0 opacity-45 mix-blend-luminosity">
+            <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=1920&q=80" alt="The Waterfall Dining Ambience" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Animated Water Ripples and Sky Blue Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-oceanDark/80 via-oceanDark/85 to-oceanDark z-10"></div>
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-skyPrimary/20 rounded-full blur-3xl pointer-events-none water-ripple"></div>
+
+        <div class="relative z-20 max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-skyPrimary/40 bg-skyPrimary/10 text-skyPrimary text-xs sm:text-sm font-semibold tracking-wider uppercase mb-6 backdrop-blur-md">
+                <i class="fa-solid fa-water-ladder text-skyPrimary"></i> Indore's Premier Sky-Blue In-Pool & Waterfall Dining
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-playfair font-extrabold text-white leading-tight mb-6 tracking-wide">
+                Experience Dining Amidst <br class="hidden sm:inline"><span class="sky-gradient-heading italic">Cascading Waterfalls</span>
+            </h1>
+
+            <p class="text-base sm:text-xl text-sky-100 max-w-3xl mx-auto font-light leading-relaxed mb-10">
+                Immerse yourself in cool, crystal waters and serene open-air lawns near Rau Circle, Indore. Enjoy live sizzling barbecues, delicious multi-cuisine, and magical ambient lighting right by the waterfalls.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <button onclick="openBookingModal()" class="w-full sm:w-auto bg-gradient-to-r from-skyPrimary via-skyDeep to-oceanDark hover:from-skyDeep hover:to-oceanDark text-white font-bold text-lg px-8 py-4 rounded-full shadow-xl hover:shadow-skyPrimary/30 transition-all duration-300 border border-skyPrimary/50 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-calendar-check text-skyLight"></i> Book Waterfall Table
+                </button>
+                <a href="#menu" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-sky-100 font-semibold text-lg px-8 py-4 rounded-full border border-skyPrimary/30 backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-book-open text-skyPrimary"></i> View Food Menu
+                </a>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-8 border-t border-skyPrimary/20 text-left">
+                <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-skyPrimary/20 backdrop-blur-sm">
+                    <div class="p-3 bg-skyPrimary/20 text-skyPrimary rounded-xl text-xl"><i class="fa-solid fa-person-swimming"></i></div>
+                    <div>
+                        <div class="text-white font-bold text-sm">In-Pool Seating</div>
+                        <div class="text-xs text-sky-200">Feet-dip table experience</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-skyPrimary/20 backdrop-blur-sm">
+                    <div class="p-3 bg-goldAccent/20 text-goldAccent rounded-xl text-xl"><i class="fa-solid fa-fire-burner"></i></div>
+                    <div>
+                        <div class="text-white font-bold text-sm">Live Barbecue</div>
+                        <div class="text-xs text-sky-200">Fresh Tandoor & Grills</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-skyPrimary/20 backdrop-blur-sm">
+                    <div class="p-3 bg-emerald-400/20 text-emerald-300 rounded-xl text-xl"><i class="fa-solid fa-dog"></i></div>
+                    <div>
+                        <div class="text-white font-bold text-sm">Pet Friendly</div>
+                        <div class="text-xs text-sky-200">Welcoming open garden</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-skyPrimary/20 backdrop-blur-sm">
+                    <div class="p-3 bg-sky-300/20 text-sky-200 rounded-xl text-xl"><i class="fa-solid fa-square-parking"></i></div>
+                    <div>
+                        <div class="text-white font-bold text-sm">Huge Parking</div>
+                        <div class="text-xs text-sky-200">Ample space for vehicles</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Showcase -->
+    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-skyDeep font-semibold tracking-wider text-xs sm:text-sm uppercase">Unmatched Poolside Atmosphere</span>
+            <h2 class="text-3xl sm:text-5xl font-playfair font-bold text-oceanDark mt-2">Dining Surrounded by Cascades</h2>
+            <div class="w-24 h-1 bg-skyPrimary mx-auto mt-4 rounded-full"></div>
+            <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                Conveniently located near Rau Circle, MITM College, and Medi-Caps University in Indore. Step into a lush sanctuary filled with cool waters, romantic ambient lights, and lively open garden lawns.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Experience Card 1 -->
+            <div class="group relative rounded-3xl overflow-hidden shadow-xl bg-white border border-sky-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-skyPrimary/20">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Waterfall & Poolside Tables" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-oceanDark/80 via-transparent to-transparent"></div>
+                    <span class="absolute top-4 right-4 bg-skyPrimary text-oceanDark text-xs font-bold px-3 py-1 rounded-full uppercase shadow-md">Signature</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-bold text-oceanDark mb-2">In-Pool & Waterfall Tables</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Relax in our signature shallow water tables with artificial cascades roaring in the background—the coolest place to dine in Indore!
+                    </p>
+                    <div class="flex items-center text-xs font-semibold text-skyDeep gap-2">
+                        <i class="fa-solid fa-circle-check text-skyPrimary"></i> Romantic dates, birthdays & group chills
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Card 2 -->
+            <div class="group relative rounded-3xl overflow-hidden shadow-xl bg-white border border-sky-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-skyPrimary/20">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Open Garden Lawn Dining" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-oceanDark/80 via-transparent to-transparent"></div>
+                    <span class="absolute top-4 right-4 bg-skyDeep text-white text-xs font-bold px-3 py-1 rounded-full uppercase shadow-md">Garden & Lawns</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-bold text-oceanDark mb-2">Lawn & Live Barbecue</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Spacious open green gardens paired with live sizzling charcoal barbecues and ambient evening illumination under starry skies.
+                    </p>
+                    <div class="flex items-center text-xs font-semibold text-skyDeep gap-2">
+                        <i class="fa-solid fa-circle-check text-skyPrimary"></i> Fresh tandoori starters served hot
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Card 3 -->
+            <div class="group relative rounded-3xl overflow-hidden shadow-xl bg-white border border-sky-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-skyPrimary/20">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=800&q=80" alt="Pool Party Celebrations" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-oceanDark/80 via-transparent to-transparent"></div>
+                    <span class="absolute top-4 right-4 bg-goldAccent text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-md">Parties</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-bold text-oceanDark mb-2">Pool Parties & Events</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Host Kitty Parties, Anniversaries, Corporate Get-togethers, and Birthday Pool bashes with customized food menus and music arrangements.
+                    </p>
+                    <div class="flex items-center text-xs font-semibold text-skyDeep gap-2">
+                        <i class="fa-solid fa-circle-check text-skyPrimary"></i> Dedicated party lawn available
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Photo Grid -->
+    <section id="gallery" class="py-20 bg-gradient-to-b from-sky-100/60 to-sky-50 px-4 sm:px-6 lg:px-8 border-y border-skyPrimary/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-skyDeep font-semibold tracking-wider text-xs sm:text-sm uppercase">Google Maps Visuals</span>
+                <h2 class="text-3xl sm:text-5xl font-playfair font-bold text-oceanDark mt-2">Atmosphere & Food Gallery</h2>
+                <div class="w-24 h-1 bg-skyPrimary mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-600 mt-4 text-sm sm:text-base">Take a glance at our actual setting, poolside lighting, water cascades, and gourmet dishes.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="group relative rounded-2xl overflow-hidden h-52 sm:h-64 shadow-md border border-sky-200">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Restaurant Outdoor Lighting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-oceanDark/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white text-xs font-semibold">
+                        Night Lighting & Ambience
+                    </div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden h-52 sm:h-64 shadow-md border border-sky-200">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Sizzling Tandoori Barbecue" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-oceanDark/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white text-xs font-semibold">
+                        Live Tandoor & Starters
+                    </div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden h-52 sm:h-64 shadow-md border border-sky-200">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Gourmet Dishes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-oceanDark/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white text-xs font-semibold">
+                        Multi-Cuisine Delicacies
+                    </div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden h-52 sm:h-64 shadow-md border border-sky-200">
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Refreshing Mocktails" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-oceanDark/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white text-xs font-semibold">
+                        Chilled Summer Coolers
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Menu Section -->
+    <section id="menu" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-skyDeep font-semibold tracking-wider text-xs sm:text-sm uppercase">Multi-Cuisine Culinary Delight</span>
+            <h2 class="text-3xl sm:text-5xl font-playfair font-bold text-oceanDark mt-2">Explore Our Specialities</h2>
+            <div class="w-24 h-1 bg-skyPrimary mx-auto mt-4 rounded-full"></div>
+            <p class="text-slate-600 mt-4 text-sm sm:text-base">Prepared fresh by experienced chefs using authentic spices and high-quality ingredients.</p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-10" id="menuTabs">
+            <button onclick="switchMenu('starters')" id="tab-starters" class="menu-tab-btn active bg-oceanDark text-skyLight border border-skyPrimary px-5 py-2.5 rounded-full font-semibold text-sm shadow-md transition-all">
+                <i class="fa-solid fa-fire mr-1.5 text-goldAccent"></i> Starters & Barbecue
+            </button>
+            <button onclick="switchMenu('mains')" id="tab-mains" class="menu-tab-btn bg-white text-slate-700 hover:bg-sky-50 border border-sky-200 px-5 py-2.5 rounded-full font-semibold text-sm transition-all">
+                <i class="fa-solid fa-bowl-food mr-1.5 text-skyDeep"></i> Main Course
+            </button>
+            <button onclick="switchMenu('chinese')" id="tab-chinese" class="menu-tab-btn bg-white text-slate-700 hover:bg-sky-50 border border-sky-200 px-5 py-2.5 rounded-full font-semibold text-sm transition-all">
+                <i class="fa-solid fa-pepper-hot mr-1.5 text-rose-500"></i> Chinese & Indo
+            </button>
+            <button onclick="switchMenu('beverages')" id="tab-beverages" class="menu-tab-btn bg-white text-slate-700 hover:bg-sky-50 border border-sky-200 px-5 py-2.5 rounded-full font-semibold text-sm transition-all">
+                <i class="fa-solid fa-martini-glass-citrus mr-1.5 text-skyPrimary"></i> Mocktails & Drinks
+            </button>
+            <button onclick="switchMenu('desserts')" id="tab-desserts" class="menu-tab-btn bg-white text-slate-700 hover:bg-sky-50 border border-sky-200 px-5 py-2.5 rounded-full font-semibold text-sm transition-all">
+                <i class="fa-solid fa-ice-cream mr-1.5 text-pink-500"></i> Desserts
+            </button>
+        </div>
+
+        <!-- Menu Container Box -->
+        <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border border-sky-100 min-h-[380px]">
+            
+            <!-- Category: Starters -->
+            <div id="category-starters" class="menu-category grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block" title="Vegetarian"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Paneer Tikka Angaara</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Cottage cheese marinated in tandoori spices, cooked over charcoal live BBQ.</p>
+                    </div>
+                    <span class="text-xs font-semibold px-2.5 py-1 bg-skyPrimary/15 text-skyDeep rounded-lg">Popular</span>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Dahi Ke Kebab</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Melt-in-mouth hung curd patties infused with coriander and subtle spices.</p>
+                    </div>
+                    <span class="text-xs font-semibold px-2.5 py-1 bg-goldAccent/15 text-goldHover rounded-lg">Chef Special</span>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Tandoori Malai Chaap</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Soya chaap drenched in rich cashew-cream marinade and grilled to perfection.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Crispy Corn Salt & Pepper</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Golden sweet corn kernels tossed with spring onions and cracked pepper.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Mains -->
+            <div id="category-mains" class="menu-category hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Waterfall Special Dal Makhani</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Slow-cooked black lentils in rich butter gravy, charcoal smoked overnight.</p>
+                    </div>
+                    <span class="text-xs font-semibold px-2.5 py-1 bg-skyPrimary/15 text-skyDeep rounded-lg">Must Try</span>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Paneer Butter Masala</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Soft paneer cubes in velvety tomato cream gravy with aromatic kasuri methi.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Kaju Curry Indori Style</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Roasted whole cashews cooked in rich, spicy royal gravy.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Hyderabadi Veg Dum Biryani</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Long-grain basmati rice cooked with fresh vegetables and saffron spices.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Chinese -->
+            <div id="category-chinese" class="menu-category hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Chilli Paneer Dry / Gravy</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Wok tossed cottage cheese with crunchy capsicum, onions, and dark soy.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600 inline-block"></span>
+                            <h4 class="font-bold text-lg text-oceanDark">Veg Hakka Noodles</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">Stir-fried noodles with garden vegetables and aromatic soy seasoning.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Beverages -->
+            <div id="category-beverages" class="menu-category hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h4 class="font-bold text-lg text-oceanDark">Blue Lagoon Sky Cooler</h4>
+                        <p class="text-xs text-slate-500 mt-1">Blue curacao syrup, sparkling soda, lime juice, and crushed ice.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h4 class="font-bold text-lg text-oceanDark">Virgin Mint Mojito</h4>
+                        <p class="text-xs text-slate-500 mt-1">Muddled fresh mint leaves, lime slices, and effervescent soda.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Desserts -->
+            <div id="category-desserts" class="menu-category hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h4 class="font-bold text-lg text-oceanDark">Sizzling Brownie with Vanilla</h4>
+                        <p class="text-xs text-slate-500 mt-1">Warm chocolate brownie served sizzling with cold vanilla scoop.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl hover:bg-sky-50/70 transition-colors border-b border-sky-100 flex justify-between items-start gap-4">
+                    <div>
+                        <h4 class="font-bold text-lg text-oceanDark">Gulab Jamun with Rabri</h4>
+                        <p class="text-xs text-slate-500 mt-1">Soft milk dumplings soaked in syrup paired with rich saffron rabri.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Download PDF Menu Trigger -->
+        <div class="mt-8 text-center">
+            <button onclick="openMenuPdfModal()" class="inline-flex items-center gap-3 bg-gradient-to-r from-oceanDark to-skyDeep hover:from-skyDeep hover:to-oceanDark text-white font-semibold px-8 py-3.5 rounded-full shadow-xl transition-all duration-300">
+                <i class="fa-solid fa-file-pdf text-skyPrimary text-xl"></i> Open Complete Menu PDF
+            </button>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-sky-100/50 px-4 sm:px-6 lg:px-8 border-t border-sky-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 bg-skyPrimary/20 text-oceanDark px-4 py-1.5 rounded-full text-xs font-bold mb-3 border border-skyPrimary/30">
+                    <i class="fa-solid fa-star text-goldAccent"></i> 4.8 / 5 Rated on Google Reviews
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-playfair font-bold text-oceanDark">What Our Diners Say</h2>
+                <div class="w-24 h-1 bg-skyPrimary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-sky-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-goldAccent text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm italic leading-relaxed mb-6">
+                            "Sitting with our feet in the pool while enjoying hot Paneer Tikka under the waterfall lightings was pure bliss! Best unique dining location in Rau Indore."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-sky-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-oceanDark text-skyPrimary font-bold flex items-center justify-center text-sm">
+                            AS
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-oceanDark">Ananya Sharma</div>
+                            <div class="text-xs text-slate-400">Google Verified Reviewer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-sky-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-goldAccent text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm italic leading-relaxed mb-6">
+                            "Organized a birthday pool party here. Ample parking, pet-friendly atmosphere, and super polite staff. Dal Makhani and Mocktails were delicious."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-sky-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-skyDeep text-white font-bold flex items-center justify-center text-sm">
+                            RV
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-oceanDark">Rohan Verma</div>
+                            <div class="text-xs text-slate-400">Dined with Family</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-sky-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-goldAccent text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm italic leading-relaxed mb-6">
+                            "Located nicely near Medi-Caps Rau Circle. Peaceful garden vibes, live barbecue aroma, and great music. A must visit when you are in Indore."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-sky-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-skyPrimary text-oceanDark font-bold flex items-center justify-center text-sm">
+                            PP
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-oceanDark">Priya Patel</div>
+                            <div class="text-xs text-slate-400">Indore Local Guide</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Information Panel (5 Cols) -->
+            <div class="lg:col-span-5 bg-oceanDark text-white p-8 sm:p-10 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-skyPrimary/20 rounded-full blur-3xl"></div>
+
+                <div>
+                    <span class="text-skyPrimary font-semibold text-xs tracking-widest uppercase">Visit The Waterfall</span>
+                    <h2 class="text-3xl font-playfair font-bold text-white mt-1 mb-6">Location & Operating Hours</h2>
+
+                    <!-- Hours Box -->
+                    <div class="mb-8 bg-white/5 p-5 rounded-2xl border border-skyPrimary/20">
+                        <h4 class="text-skyPrimary font-bold text-sm uppercase tracking-wide mb-3 flex items-center gap-2">
+                            <i class="fa-regular fa-clock"></i> Opening Timings
+                        </h4>
+                        <div class="space-y-2 text-sm text-sky-100">
+                            <div class="flex justify-between border-b border-white/10 pb-2">
+                                <span>Monday – Sunday:</span>
+                                <span class="font-semibold text-white">11:00 AM – 11:30 PM</span>
+                            </div>
+                            <div class="text-xs text-sky-300 pt-1">
+                                <i class="fa-solid fa-circle-info mr-1"></i> Open daily for lunch & dinner dining
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address & Contacts -->
+                    <div class="space-y-5 text-sm">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-skyPrimary/20 text-skyPrimary flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white">Address</div>
+                                <div class="text-sky-100 text-xs mt-1 leading-relaxed">
+                                    Rau Circle, Near MITM College / Medi-Caps University, Ahead of Fundore Park, Indore, MP 453331
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-skyPrimary/20 text-skyPrimary flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white">Call Reservations</div>
+                                <a href="tel:+917000359623" class="text-skyPrimary hover:underline text-sm font-bold block mt-0.5">
+                                    +91 70003 59623
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white">WhatsApp Chat</div>
+                                <a href="https://wa.me/917000359623?text=Hi%20The%20Waterfall%20Restaurant,%20I%20would%20like%20to%20reserve%20a%20table." target="_blank" class="text-emerald-300 hover:underline text-xs block mt-0.5">
+                                    Click here to chat instantly for booking
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Call Buttons -->
+                <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+                    <a href="tel:+917000359623" class="flex-1 bg-skyPrimary hover:bg-skyDeep text-oceanDark font-bold py-3 px-4 rounded-xl text-center text-sm transition-colors">
+                        <i class="fa-solid fa-phone mr-2"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/917000359623?text=Hi%20The%20Waterfall%20Restaurant,%20I%20would%20like%20to%20reserve%20a%20table." target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-center text-sm transition-colors">
+                        <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Google Map Frame & Quick Booking Form (7 Cols) -->
+            <div class="lg:col-span-7 flex flex-col justify-between gap-6">
+                <!-- Map Container -->
+                <div class="w-full h-64 sm:h-80 rounded-3xl overflow-hidden shadow-lg border border-sky-200">
+                    <iframe 
+                        title="The Waterfall Restaurant Google Maps Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.352488102483!2d75.815!3d22.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDM3JzE4LjAiTiA3NcKwNDgnNTQuMCJF!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" 
+                        class="w-full h-full border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Online Reservation Form -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-lg border border-sky-100">
+                    <h3 class="text-2xl font-playfair font-bold text-oceanDark mb-2">Reserve Your Table Online</h3>
+                    <p class="text-xs text-slate-500 mb-6">Submit details to reserve in-pool or garden lawn seating.</p>
+                    
+                    <form id="reservationForm" onsubmit="handleFormSubmit(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name</label>
+                            <input type="text" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-2.5 rounded-xl border border-sky-200 text-sm focus:outline-none focus:border-skyPrimary">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+                            <input type="tel" required placeholder="+91 98765 43210" class="w-full px-4 py-2.5 rounded-xl border border-sky-200 text-sm focus:outline-none focus:border-skyPrimary">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Preferred Date & Time</label>
+                            <input type="datetime-local" required class="w-full px-4 py-2.5 rounded-xl border border-sky-200 text-sm focus:outline-none focus:border-skyPrimary">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Seating Area</label>
+                            <select class="w-full px-4 py-2.5 rounded-xl border border-sky-200 text-sm focus:outline-none focus:border-skyPrimary bg-white">
+                                <option>In-Pool Waterfall Table</option>
+                                <option>Garden Lawn & BBQ Table</option>
+                                <option>Gazebo Private Table</option>
+                                <option>Party Lawn / Event</option>
+                            </select>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <button type="submit" class="w-full bg-gradient-to-r from-oceanDark to-skyDeep hover:from-skyDeep hover:to-oceanDark text-white font-bold py-3.5 rounded-xl shadow-lg text-sm transition-all duration-300">
+                                Send Reservation Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-oceanDark text-white border-t border-skyPrimary/30 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full border border-skyPrimary flex items-center justify-center bg-oceanDark text-skyPrimary">
+                            <i class="fa-solid fa-water text-lg"></i>
+                        </div>
+                        <span class="font-playfair font-bold text-xl text-white">THE WATERFALL</span>
+                    </div>
+                    <p class="text-xs text-sky-200 leading-relaxed">
+                        Indore's premiere poolside culinary experience. Multi-cuisine delicacies, gushing waterfalls, live barbecue, and serene open-air lawns.
+                    </p>
+                </div>
+
+                <!-- Navigation Links -->
+                <div>
+                    <h5 class="text-skyPrimary font-bold text-sm uppercase tracking-wider mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-xs text-sky-100">
+                        <li><a href="#home" class="hover:text-skyPrimary transition-colors">Home</a></li>
+                        <li><a href="#experience" class="hover:text-skyPrimary transition-colors">In-Pool Dining Experience</a></li>
+                        <li><a href="#gallery" class="hover:text-skyPrimary transition-colors">Photos & Atmosphere</a></li>
+                        <li><a href="#menu" class="hover:text-skyPrimary transition-colors">Speciality Menu</a></li>
+                        <li><a href="#reviews" class="hover:text-skyPrimary transition-colors">Customer Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Specialties -->
+                <div>
+                    <h5 class="text-skyPrimary font-bold text-sm uppercase tracking-wider mb-4">Cuisines</h5>
+                    <ul class="space-y-2 text-xs text-sky-100">
+                        <li>North Indian & Dal Makhani</li>
+                        <li>Live Charcoal Barbecue</li>
+                        <li>Indochinese & Noodles</li>
+                        <li>Chilled Sky Mocktails</li>
+                        <li>Desserts & Ice Creams</li>
+                    </ul>
+                </div>
+
+                <!-- Contact Summary -->
+                <div>
+                    <h5 class="text-skyPrimary font-bold text-sm uppercase tracking-wider mb-4">Location</h5>
+                    <p class="text-xs text-sky-200 leading-relaxed mb-3">
+                        Rau Circle, Near MITM College / Medi-Caps University, Ahead of Fundore Park, Indore, MP 453331
+                    </p>
+                    <span class="text-xs text-skyPrimary font-semibold"><i class="fa-solid fa-phone mr-1"></i> +91 70003 59623</span>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-sky-300 gap-4">
+                <p>&copy; <span id="year"></span> The Waterfall Restaurant Indore. All Rights Reserved.</p>
+                <p>Designed for Luxury Waterfall Dining in Indore.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal 1: Table Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-oceanDark/80 backdrop-blur-md items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-skyPrimary/30">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl font-bold p-2">
+                &times;
+            </button>
+            <h3 class="text-2xl font-playfair font-bold text-oceanDark mb-2">Book Your Table</h3>
+            <p class="text-xs text-slate-500 mb-6">Choose your preferred sitting spot by the cascading water.</p>
+            
+            <form onsubmit="handleModalFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name</label>
+                    <input type="text" required placeholder="Name" class="w-full px-4 py-2.5 rounded-xl border border-sky-200 text-sm focus:outline-none focus:border-skyPrimary">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+                    <input type="tel" required placeholder="Phone Number" class="w-full px-4 py-2.5 rounded-xl border border-sky-200 text-sm focus:outline-none focus:border-skyPrimary">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Seating Preference</label>
+                    <select class="w-full px-4 py-2.5 rounded-xl border border-sky-200 text-sm focus:outline-none focus:border-skyPrimary bg-white">
+                        <option>In-Pool Waterfall Table</option>
+                        <option>Lawn & BBQ Table</option>
+                        <option>Private Party Area</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-skyPrimary hover:bg-skyDeep text-oceanDark font-bold py-3.5 rounded-xl text-sm transition-all shadow-md mt-4">
+                    Confirm Booking Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 2: Menu PDF Viewer Modal -->
+    <div id="menuPdfModal" class="fixed inset-0 z-50 hidden bg-oceanDark/85 backdrop-blur-md items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeMenuPdfModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-2xl font-bold p-2">
+                &times;
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-oceanDark text-skyPrimary flex items-center justify-center mx-auto mb-2 text-xl">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <h3 class="text-2xl font-playfair font-bold text-oceanDark">Restaurant Menu PDF</h3>
+                <p class="text-xs text-slate-500">Official digital menu list overview</p>
+            </div>
+
+            <!-- Digital PDF Preview Mockup -->
+            <div class="bg-sky-50 p-6 rounded-2xl border border-sky-200 text-left space-y-5">
+                <div class="border-b border-sky-200 pb-3">
+                    <h4 class="font-bold text-oceanDark text-base border-l-4 border-skyPrimary pl-2">STARTERS & TANDOOR</h4>
+                    <p class="text-xs text-slate-600 mt-1">Paneer Tikka Angaara • Dahi Kebab • Malai Chaap • Veg Seekh • Crispy Corn</p>
+                </div>
+                <div class="border-b border-sky-200 pb-3">
+                    <h4 class="font-bold text-oceanDark text-base border-l-4 border-skyPrimary pl-2">MAIN COURSE</h4>
+                    <p class="text-xs text-slate-600 mt-1">Paneer Butter Masala • Waterfall Dal Makhani • Kaju Curry • Veg Biryani • Naan</p>
+                </div>
+                <div class="border-b border-sky-200 pb-3">
+                    <h4 class="font-bold text-oceanDark text-base border-l-4 border-skyPrimary pl-2">CHINESE SPECIALS</h4>
+                    <p class="text-xs text-slate-600 mt-1">Chilli Paneer • Veg Manchurian • Hakka Noodles • Fried Rice • Spring Rolls</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-oceanDark text-base border-l-4 border-skyPrimary pl-2">DRINKS & MOCKTAILS</h4>
+                    <p class="text-xs text-slate-600 mt-1">Blue Lagoon • Virgin Mojito • Cold Coffee • Fresh Lime Soda</p>
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                <a href="https://wa.me/917000359623?text=Hi%20The%20Waterfall%20Restaurant,%20please%20send%20me%20the%20complete%20PDF%20menu." target="_blank" class="flex-1 bg-emerald-600 text-white font-bold py-3 rounded-xl text-center text-sm hover:bg-emerald-700 transition-colors">
+                    <i class="fa-brands fa-whatsapp mr-1"></i> Request PDF via WhatsApp
+                </a>
+                <button onclick="closeMenuPdfModal()" class="px-6 bg-slate-200 text-slate-700 font-bold py-3 rounded-xl text-sm">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-oceanDark text-white px-6 py-4 rounded-2xl shadow-2xl border border-skyPrimary/40 hidden items-center gap-3 z-50 text-sm">
+        <i class="fa-solid fa-circle-check text-skyPrimary text-xl"></i>
+        <span id="toastMsg">Reservation request submitted!</span>
+    </div>
+
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Interactive Menu Tab Filter Logic
+        function switchMenu(category) {
+            document.querySelectorAll('.menu-category').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.menu-tab-btn').forEach(btn => {
+                btn.className = 'menu-tab-btn bg-white text-slate-700 hover:bg-sky-50 border border-sky-200 px-5 py-2.5 rounded-full font-semibold text-sm transition-all';
+            });
+
+            const selectedCategory = document.getElementById(`category-${category}`);
+            if (selectedCategory) {
+                selectedCategory.classList.remove('hidden');
+            }
+
+            const selectedTab = document.getElementById(`tab-${category}`);
+            if (selectedTab) {
+                selectedTab.className = 'menu-tab-btn active bg-oceanDark text-skyLight border border-skyPrimary px-5 py-2.5 rounded-full font-semibold text-sm shadow-md transition-all';
+            }
+        }
+
+        // Modal triggers
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.add('modal-active');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('modal-active');
+        }
+
+        function openMenuPdfModal() {
+            document.getElementById('menuPdfModal').classList.add('modal-active');
+        }
+
+        function closeMenuPdfModal() {
+            document.getElementById('menuPdfModal').classList.remove('modal-active');
+        }
+
+        // Form Event Listeners
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            showToast("Your table reservation request has been submitted successfully!");
+            e.target.reset();
+        }
+
+        function handleModalFormSubmit(e) {
+            e.preventDefault();
+            closeBookingModal();
+            showToast("Booking request sent! We look forward to welcoming you.");
+            e.target.reset();
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
